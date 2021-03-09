@@ -8,6 +8,7 @@ gem 'rails', '~> 5.2.4', '>= 5.2.4.4'
 gem 'puma'
 gem 'pg'
 gem 'blazer'
+gem 'faker'
 
 # Use SCSS for stylesheets
 gem 'sass-rails'
