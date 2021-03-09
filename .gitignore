@@ -6,6 +6,12 @@
 /pkg/
 /spec/reports/
 /tmp/
+/public/
+/pgdata/
+
 
 # rspec failure tracking
 .rspec_status
+
+# Ignore master key for decrypting credentials and more.
+/config/master.key
