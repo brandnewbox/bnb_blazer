@@ -7,6 +7,16 @@ gemspec
 gem 'rails', '~> 5.2.4', '>= 5.2.4.4'
 gem 'puma'
 gem 'pg'
+gem 'blazer'
+
+# Use SCSS for stylesheets
+gem 'sass-rails'
+
+# Use Uglifier as compressor for JavaScript assets
+gem 'uglifier', '>= 2.7.2'
+
+# Use jquery as the JavaScript library
+gem 'jquery-rails'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
