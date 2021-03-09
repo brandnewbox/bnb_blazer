@@ -2,7 +2,7 @@ version: "3"
 services:
   app:    
     image: brandnewbox/bnb-ruby:2.6-postgresql
-    command: bundle exec rails s
+    command: bundle exec puma -C config/puma.rb
     env_file: .docker-development-vars
     volumes:
       - .:/app:cached
