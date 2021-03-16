@@ -12,7 +12,7 @@ services:
   postgresql:
     image: postgres:11.6
     volumes:
-      - ./pgdata:/var/lib/postgresql/data:delegated
+      - my_dbdata:/var/lib/postgresql/data
     environment:
       - POSTGRES_USER=blazer
       - POSTGRES_HOST_AUTH_METHOD=trust
@@ -20,4 +20,4 @@ services:
       - "15432:5432"
 volumes:
   bundle_cache:
-  pgdata:
+  my_dbdata:
