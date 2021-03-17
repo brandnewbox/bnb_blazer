@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bnb-blazer (0.1.0)
+    bnb_blazer (0.1.0)
 
 GEM
   remote: https://rubygems.org/
@@ -173,7 +173,7 @@ PLATFORMS
 
 DEPENDENCIES
   blazer
-  bnb-blazer!
+  bnb_blazer!
   bootsnap (>= 1.1.0)
   byebug
   faker

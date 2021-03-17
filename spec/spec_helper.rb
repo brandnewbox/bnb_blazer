@@ -1,5 +1,5 @@
 require "bundler/setup"
-require "bnb/blazer"
+require "bnb_blazer"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
