@@ -22,10 +22,8 @@ This gem comes bundled with a test app to help you test out new display designs 
 1. Clone this repo down to your machine
 2. Make sure you have [Dip](https://github.com/brandnewbox/bnb-dip-defaults) installed and configured
 3. In your new `bnb_blazer` directory, run `docker-compose up`
-4. Once all your containers have spun up, run `dip bash`
-5. Run `bundle exec rails db:create`
-6. Run `bundle exec rails db:migrate`
-7. Run `bundle exec rails db:seed`
+4. Once all your containers have spun up, run `dip setup`
+5. Navigate to http://localhost:300/blazer in your browser, and away you go!
 
 ## Contributing
 

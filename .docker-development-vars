@@ -1,1 +1,1 @@
-DATABASE_URL=postgresql://blazer:password@postgresql:5432
+DATABASE_URL=postgresql://postgres:password@postgresql:5432
