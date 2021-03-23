@@ -1,10 +1,7 @@
-/*
- *= require ./bootstrap
- *= require ./selectize
- *= require ./github
- *= require ./daterangepicker
- *= require_self
- */
+ @import "bootstrap";
+ @import "./daterangepicker";
+ @import "./github";
+ @import "./selectize";
 
 pre {
   border: none;

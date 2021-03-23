@@ -1,4 +1,4 @@
-//= require ./jquery
+//= require jquery3
 //= require ./jquery-ujs
 //= require ./stupidtable
 //= require ./stupidtable-custom-settings
@@ -12,7 +12,8 @@
 //= require ./chartkick
 //= require ./ace
 //= require ./Sortable
-//= require ./bootstrap
+//= require popper
+//= require bootstrap
 //= require ./vue
 //= require ./routes
 //= require ./queries
