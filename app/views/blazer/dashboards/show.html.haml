@@ -8,7 +8,7 @@
           = @dashboard.name
       .col-sm-3.text-right
         = link_to "Edit", edit_dashboard_path(@dashboard, variable_params(@dashboard)), class: "btn btn-info"
-%div{:style => "margin-bottom: 60px;"}
+%div{:style => "margin-bottom: 70px;"}
 - if @data_sources.any? { |ds| ds.cache_mode != "off" }
   %p.text-muted{:style => "float: right;"}
     Some queries may be cached

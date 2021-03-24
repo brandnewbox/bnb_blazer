@@ -1,19 +1,53 @@
 - blazer_title @query.name
-.topbar
+%nav.navbar.navbar-default
   .container
-    .row{:style => "padding-top: 13px;"}
-      .col-sm-9
-        = render partial: "blazer/nav"
-        %h3{:style => "line-height: 34px; display: inline; margin-left: 5px;"}
-          = @query.name
-      .col-sm-3.text-right
-        = link_to "Edit", edit_query_path(@query, variable_params(@query)), class: "text-muted font-weight-bold px-1", disabled: !@query.editable?(blazer_user)
-        = link_to "Fork", new_query_path(variable_params(@query).merge(fork_query_id: @query.id, data_source: @query.data_source, name: @query.name)), class: "text-muted font-weight-bold px-1"
-        - if !@error && @success
-          = link_to "Download", run_queries_path(query_id: @query.id, format: "csv", forecast: params[:forecast], cohort_period: params[:cohort_period]), params: {statement: @statement}, class: "text-muted font-weight-bold px-1"
-        = image_tag "bnb_intel_logo.png"
+    .navbar-header
+      %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      .navbar-brand
+        = image_tag "bnb_intel_logo.png", class: "img-responsive"
+    / Collect the nav links, forms, and other content for toggling
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      %ul.nav.navbar-nav
+        %li.dropdown
+          %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+            Dropdown
+            %span.caret
+          %ul.dropdown-menu
+            %li
+              %a{:href => "#"} Action
+            %li
+              %a{:href => "#"} Another action
+            %li
+              %a{:href => "#"} Something else here
+            %li.divider{:role => "separator"}
+            %li
+              %a{:href => "#"} Separated link
+            %li.divider{:role => "separator"}
+            %li
+              %a{:href => "#"} One more separated link
+      %ul.nav.navbar-nav.navbar-right
+        %li
+          %a{:href => "#"} Link
+-# .topbar
+-#   .container
+-#     .row{:style => "padding-top: 13px;"}
+-#       .col-sm-6
+-#         = render partial: "blazer/nav"
+-#         %h3{:style => "line-height: 34px; display: inline; margin-left: 5px;"}
+-#           = @query.name
+-#       .col-sm-3.text-right
+-#         = link_to "Edit", edit_query_path(@query, variable_params(@query)), class: "text-muted font-weight-bold px-1", disabled: !@query.editable?(blazer_user)
+-#         = link_to "Fork", new_query_path(variable_params(@query).merge(fork_query_id: @query.id, data_source: @query.data_source, name: @query.name)), class: "text-muted font-weight-bold px-1"
+-#         - if !@error && @success
+-#           = link_to "Download", run_queries_path(query_id: @query.id, format: "csv", forecast: params[:forecast], cohort_period: params[:cohort_period]), params: {statement: @statement}, class: "text-muted font-weight-bold px-1"
+-#       .col-sm-3.text-right
+-#         = image_tag "bnb_intel_logo.png", class: "img-responsive"
 #blazer-content
-  %div{:style => "margin-bottom: 60px;"}
+  %div{:style => "margin-bottom: 70px;"}
   - if @sql_errors.any?
     .alert.alert-danger
       %ul
@@ -21,13 +55,12 @@
           %li= message
   - if @query.description.present?
     %p= @query.description
-  .bg-light
-    = render partial: "blazer/variables", locals: {action: query_path(@query)}
-    %pre#code
-      %code= @statement
+  = render partial: "blazer/variables", locals: {action: query_path(@query)}
+  %pre#code
+    %code= @statement
   - if @success
-    #results.bg-light.my-3.px-3
-      %p.text-muted Loading...
+    #results
+      %p.text-muted.text-uppercase Loading...
     :javascript
       function showRun(data) {
         $("#results").html(data)
@@ -37,10 +70,8 @@
       function showError(message) {
         $("#results").addClass("query-error").html(message)
       }
-      
-      <haml_silent>       data = variable_params(@query).merge(statement: @statement, query_id: @query.id, data_source: @query.data_source) 
-      </haml_silent><haml_silent>       data.merge!(forecast: &quot;t&quot;) if params[:forecast] 
-      </haml_silent>      #{blazer_js_var "data", data}
+
+      #{blazer_js_var "data", variable_params(@query).merge(statement: @statement, query_id: @query.id, data_source: @query.data_source)}
       
             runQuery(data, showRun, showError)
   - unless %w(mongodb).include?(Blazer.data_sources[@query.data_source].adapter)
