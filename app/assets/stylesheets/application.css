@@ -1,12 +1,20 @@
 
-
 body {
   background-color: #D3D3D3;
 }
 
-#results * {
-  background-color: #f5f5f5;
-  padding: 10px;
+table{
+  table-layout: fixed;
+}
+
+.blazer-content {
+  padding-bottom: 2.5rem;
+}
+
+#footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
 }
 
 .results-container {
@@ -20,4 +28,14 @@ body {
 .navbar-button {
   color: #777;
   margin-right: 20px;
+}
+
+#branded-table {
+  background-color: #f5f5f5;
+}
+
+.chart-container {
+  background-color: #f5f5f5;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }

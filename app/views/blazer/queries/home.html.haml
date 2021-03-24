@@ -19,7 +19,7 @@
           %li= link_to "New Dashboard", new_dashboard_path
           %li= link_to "New Check", new_check_path
     %input.search.form-control{:placeholder => "Start typing a query, dashboard, or person", :style => "width: 300px; display: inline-block;", :type => "text", "v-focus" => "", "v-model" => "searchTerm"}/
-  %table.table
+  %table.table#branded-table
     %thead
       %tr
         %th Name
