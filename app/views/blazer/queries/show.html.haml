@@ -11,7 +11,7 @@
         = link_to "Fork", new_query_path(variable_params(@query).merge(fork_query_id: @query.id, data_source: @query.data_source, name: @query.name)), class: "text-muted font-weight-bold px-1"
         - if !@error && @success
           = link_to "Download", run_queries_path(query_id: @query.id, format: "csv", forecast: params[:forecast], cohort_period: params[:cohort_period]), params: {statement: @statement}, class: "text-muted font-weight-bold px-1"
-        - image_tag "bnb_intel_logo.png"
+        = image_tag "bnb_intel_logo.png"
 #blazer-content
   %div{:style => "margin-bottom: 60px;"}
   - if @sql_errors.any?
