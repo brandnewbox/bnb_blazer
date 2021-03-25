@@ -27,12 +27,6 @@ table{
   margin-top: 20px;
 }
 
-
-.navbar-button {
-  color: #777;
-  margin-right: 20px;
-}
-
 #branded-table {
   background-color: #f5f5f5;
 }
@@ -43,14 +37,36 @@ table{
   padding-bottom: 10px;
 }
 
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 60px;
-  z-index: 1001;
-  border-bottom: solid 1px whitesmoke;
-  background-color: #fff;
+.navbar-default .navbar-nav > li > a {
+  color:  #2EB1E6;
 }
 
+.navbar-default .navbar-toggle .icon-bar {
+  background-color:  #2EB1E6;
+}
+
+.dropdown {
+  background-color: #606060;
+}
+
+.btn-default {
+  background-color: #f8f8f8;
+  border-color: #f8f8f8;
+  color:  #2EB1E6;
+}
+
+.btn-default:hover {
+  color: #2EB1E6;
+  background-color: #f8f8f8;
+  border-color:#2EB1E6;
+}
+
+.btn-default:active:focus {
+  color: #2EB1E6;
+  background-color: #f8f8f8;
+  border-color:#2EB1E6;
+}
+
+/* .navbar {
+  max-height: 50px;
+} */

@@ -1,51 +1,36 @@
 - blazer_title @query.name
-%nav.navbar.navbar-default
+%nav.navbar.navbar-default.navbar-fixed-top
   .container
     .navbar-header
-      %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+      %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#navbar-collapse", "data-toggle" => "collapse", :type => "button"}
         %span.sr-only Toggle navigation
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      .navbar-brand
-        = image_tag "bnb_intel_logo.png", class: "img-responsive"
-    / Collect the nav links, forms, and other content for toggling
-    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      = image_tag "bnb_intel_logo.png", class: "img-responsive"
+    #navbar-collapse.collapse.navbar-collapse
       %ul.nav.navbar-nav
-        %li.dropdown
-          %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-            Dropdown
+        .btn-group
+          = link_to "Home", root_path, class: "btn btn-default", data: { type: "button" }
+          %button.btn.btn-default.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
             %span.caret
+            %span.sr-only Toggle Dropdown
           %ul.dropdown-menu
-            %li
-              %a{:href => "#"} Action
-            %li
-              %a{:href => "#"} Another action
-            %li
-              %a{:href => "#"} Something else here
-            %li.divider{:role => "separator"}
-            %li
-              %a{:href => "#"} Separated link
-            %li.divider{:role => "separator"}
-            %li
-              %a{:href => "#"} One more separated link
+            %li= link_to "Checks", checks_path
+            - if Blazer.uploads?
+              %li= link_to "Uploads", uploads_path
+            %li.divider{role: "separator"}
+            %li= link_to "New Query", new_query_path
+            %li= link_to "New Dashboard", new_dashboard_path
+            - check_params = @query ? {query_id: @query.id} : {}
+            %li= link_to "New Check", new_check_path(check_params)
+
       %ul.nav.navbar-nav.navbar-right
-        %li
-          %a{:href => "#"} Link
--# .topbar
--#   .container
--#     .row{:style => "padding-top: 13px;"}
--#       .col-sm-6
--#         = render partial: "blazer/nav"
--#         %h3{:style => "line-height: 34px; display: inline; margin-left: 5px;"}
--#           = @query.name
--#       .col-sm-3.text-right
--#         = link_to "Edit", edit_query_path(@query, variable_params(@query)), class: "text-muted font-weight-bold px-1", disabled: !@query.editable?(blazer_user)
--#         = link_to "Fork", new_query_path(variable_params(@query).merge(fork_query_id: @query.id, data_source: @query.data_source, name: @query.name)), class: "text-muted font-weight-bold px-1"
--#         - if !@error && @success
--#           = link_to "Download", run_queries_path(query_id: @query.id, format: "csv", forecast: params[:forecast], cohort_period: params[:cohort_period]), params: {statement: @statement}, class: "text-muted font-weight-bold px-1"
--#       .col-sm-3.text-right
--#         = image_tag "bnb_intel_logo.png", class: "img-responsive"
+        %li= link_to "Edit", edit_query_path(@query, variable_params(@query)), class: "text-muted font-weight-bold px-1", disabled: !@query.editable?(blazer_user)
+        %li= link_to "Fork", new_query_path(variable_params(@query).merge(fork_query_id: @query.id, data_source: @query.data_source, name: @query.name)), class: "text-muted font-weight-bold px-1"
+        - if !@error && @success
+          %li= link_to "Download", run_queries_path(query_id: @query.id, format: "csv", forecast: params[:forecast], cohort_period: params[:cohort_period]), params: {statement: @statement}, class: "text-muted font-weight-bold px-1"
+
 #blazer-content
   %div{:style => "margin-bottom: 70px;"}
   - if @sql_errors.any?
@@ -53,6 +38,7 @@
       %ul
         - @sql_errors.each do |message|
           %li= message
+  %h3.text-center=@query.name
   - if @query.description.present?
     %p= @query.description
   = render partial: "blazer/variables", locals: {action: query_path(@query)}
