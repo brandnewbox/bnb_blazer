@@ -38,7 +38,8 @@ table{
 }
 
 .navbar-default .navbar-nav > li > a {
-  color:  #2EB1E6;
+  color:  #373737;
+  font-size: 18px;
 }
 
 .navbar-default .navbar-toggle .icon-bar {
@@ -52,7 +53,8 @@ table{
 .btn-default {
   background-color: #f8f8f8;
   border-color: #f8f8f8;
-  color:  #2EB1E6;
+  color:  #373737;
+  font-size: 18px;
 }
 
 .btn-default:hover {
@@ -61,12 +63,21 @@ table{
   border-color:#2EB1E6;
 }
 
-.btn-default:active:focus {
-  color: #2EB1E6;
+.btn-group > .btn + .dropdown-toggle:hover {
   background-color: #f8f8f8;
   border-color:#2EB1E6;
 }
 
-/* .navbar {
-  max-height: 50px;
-} */
+.btn-group.open .dropdown-toggle {
+  background-color: #f8f8f8;
+  border-color:#2EB1E6;
+}
+
+.navbar-default .navbar-nav > .open > a {
+  background-color: #f8f8f8;
+  border-color:#2EB1E6;
+}
+
+.navbar-nav .btn-group {
+  margin-top: 8px;
+}
