@@ -1,3 +1,7 @@
+# dependency
+require "blazer"
+
+# modules
 require "bnb_blazer/version"
 
 module BnbBlazer
