@@ -1,7 +1,7 @@
 - blazer_title @dashboard.name
 %nav.navbar.navbar-default.navbar-fixed-top
   .container
-    = render layout: "layouts/blazer/navbar" do
+    = render layout: "layouts/bnb_blazer/navbar" do
       %li= link_to "Edit", edit_dashboard_path(@dashboard, variable_params(@dashboard))
 
 %div{:style => "margin-bottom: 70px;"}
@@ -11,7 +11,7 @@
     Some queries may be cached
     \#{link_to "Refresh", refresh_dashboard_path(@dashboard, variable_params(@dashboard)), method: :post}
 - if @bind_vars.any?
-  = render partial: "blazer/variables", locals: {action: dashboard_path(@dashboard)}
+  = render partial: "bnb_blazer/variables", locals: {action: dashboard_path(@dashboard)}
 - else
   %div{:style => "padding-bottom: 15px;"}
 - @queries.each_with_index do |query, i|

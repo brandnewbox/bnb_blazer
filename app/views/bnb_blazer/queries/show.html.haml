@@ -1,7 +1,7 @@
 - blazer_title @query.name
 %nav.navbar.navbar-default.navbar-fixed-top
   .container
-    = render layout: "layouts/blazer/navbar" do
+    = render layout: "layouts/bnb_blazer/navbar" do
       %li= link_to "Edit", edit_query_path(@query, variable_params(@query)), class: "text-muted font-weight-bold px-1", disabled: !@query.editable?(blazer_user)
       %li= link_to "Fork", new_query_path(variable_params(@query).merge(fork_query_id: @query.id, data_source: @query.data_source, name: @query.name)), class: "text-muted font-weight-bold px-1"
       - if !@error && @success
@@ -17,7 +17,7 @@
   %h3.text-center=@query.name
   - if @query.description.present?
     %p= @query.description
-  = render partial: "blazer/variables", locals: {action: query_path(@query)}
+  = render partial: "bnb_blazer/variables", locals: {action: query_path(@query)}
   %pre#code
     %code= @statement
   - if @success
