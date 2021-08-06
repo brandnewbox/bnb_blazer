@@ -2,7 +2,7 @@
 require "blazer"
 
 # modules
-require "bnb_blazer/engine"
+# require "bnb_blazer/engine"
 require "bnb_blazer/version"
 
 module BnbBlazer

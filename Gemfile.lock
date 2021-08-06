@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bnb_blazer (0.5.0)
+    bnb_blazer (0.8.0)
       blazer (~> 2.4)
 
 GEM

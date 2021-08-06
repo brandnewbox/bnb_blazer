@@ -5,10 +5,10 @@
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title= blazer_title ? blazer_title : "Blazer"
     %meta{:charset => "utf-8"}/
-    = favicon_link_tag "blazer/favicon.png"
-    = stylesheet_link_tag "blazer/application"
+    = favicon_link_tag "bnb_blazer/favicon.png"
+    = stylesheet_link_tag "bnb_blazer/application"
     = stylesheet_link_tag "application"
-    = javascript_include_tag "blazer/application"
+    = javascript_include_tag "bnb_blazer/application"
     :javascript
       #{blazer_js_var "rootPath", root_path}
     - if blazer_maps?
@@ -18,4 +18,4 @@
   %body
     .container.blazer-content
       = yield
-    = render "layouts/blazer/footer"
+    = render "layouts/bnb_blazer/footer"
