@@ -1,7 +1,7 @@
 require_relative 'lib/bnb_blazer/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "bnb_blazer"
+  spec.name          = "bnb-blazer"
   spec.version       = BnbBlazer::VERSION
   spec.authors       = ["Joe"]
   spec.email         = ["pickertjoe@gmail.com"]
@@ -23,8 +23,5 @@ Gem::Specification.new do |spec|
   #   `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   # end
 
-  spec.files         = Dir["app/overrides/**/*", "app/views/**/*", "lib/**/*", "Rakefile"]
-  spec.bindir        = "exe"
-  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
-  spec.require_paths = ["lib"]
+  spec.files = Dir["{app,config,db,lib}/**/*", "Rakefile", "README.md"]
 end

@@ -2,12 +2,19 @@
 
 Welcome to BNB Blazer! This is a gem wrapper for the [Blazer](https://github.com/ankane/blazer) query tool designed specifically for BNB projects. In this directory, you'll find the files you need to edit the behavior/appearance of this gem. Additionally, you can spin up the test app to experiment with the appearance of the tool. Put your Ruby code in the file `lib/bnb_blazer`.
 
+## Development
+
+Run `dip setup` to setup the application.
+
+Since this is a Rails engine that is mounted in an application we have a dummy application in this repository that can be used to test changes. That application lives at `spec/dummy` and it's already configured to load all of the engine code from the top level directory in this repo. Once the application is started visit `http://localhost:3000/blazer` to see the test application running the blazer gem with our overrides.
+
+For the work of actually overriding the gem, Rails will load any view that we have defined in the `app/views` (not `spec/dummy/app/views`) folder before looking for them in the blazer gem. So any view that we want to override or restyle you just have to create at the same location as it would be found in the blazer gem. E.g. the homepage view for blazer is found at `app/views/blazer/queries/home.html.erb`, so if we want to override what the homepage looks like in our gem then we create a new view at `app/views/blazer/queries/home.html.erb` and copy the existing HTML from the gem and make modifications as necessary.
+
 ## Installation
 
 To use this wrapper in conjunction with Blazer, add this block to your application's Gemfile:
 
 ```ruby
-gem "blazer"
 gem "bnb_blazer"
 ```
 
