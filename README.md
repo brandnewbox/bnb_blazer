@@ -7,7 +7,6 @@ Welcome to BNB Blazer! This is a gem wrapper for the [Blazer](https://github.com
 To use this wrapper in conjunction with Blazer, add this block to your application's Gemfile:
 
 ```ruby
-gem "blazer"
 gem "bnb_blazer"
 ```
 
@@ -24,6 +23,8 @@ This gem comes bundled with a test app to help you test out new display designs 
 3. In your new `bnb_blazer` directory, run `docker-compose up`
 4. Once all your containers have spun up, run `dip setup`
 5. Navigate to http://localhost:300/blazer in your browser, and away you go!
+
+For the work of actually overriding the gem, Rails will load any view that we have defined in the `app/views` (not `spec/dummy/app/views`) folder before looking for them in the blazer gem. So any view that we want to override or restyle you just have to create at the same location as it would be found in the blazer gem. E.g. the homepage view for blazer is found at `app/views/blazer/queries/home.html.erb`, so if we want to override what the homepage looks like in our gem then we create a new view at `app/views/blazer/queries/home.html.erb` and copy the existing HTML from the gem and make modifications as necessary.
 
 ## Contributing
 

@@ -1,5 +1,6 @@
+require "blazer"
 module BnbBlazer
-  class Enginer < ::Rails::Engine
+  class Engine < ::Rails::Engine
     isolate_namespace BnbBlazer
   end
 end
