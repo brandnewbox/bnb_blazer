@@ -1,0 +1,49 @@
+
+body {
+  background-color: #edebeb;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+table {
+  table-layout: fixed;
+}
+
+.blazer-content {
+  padding-bottom: 2.5rem;
+}
+
+#footer {
+  margin-top: 2em;
+  width: 100%;
+}
+
+#results > * {
+  background-color: #ffffff;
+  padding: 2em;
+  box-shadow: #000000;
+}
+
+.results-container {
+  margin-top: 20px;
+}
+
+.chart-container {
+  background-color: #f5f5f5;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.nav-btn {
+  color: #2eb1e6;
+  border-bottom: 2px solid #2eb1e6;
+
+  .btn-link {
+    color: #2eb1e6;
+  }
+}
+
+.query-links {
+  .btn-link {
+    color: #40424a;
+  }
+}

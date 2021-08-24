@@ -16,6 +16,7 @@ Gem::Specification.new do |spec|
   spec.metadata["source_code_uri"] = "https://github.com/brandnewbox/bnb_blazer"
 
   spec.add_dependency "blazer", "~> 2.4"
+  spec.add_dependency "sassc", "~> 2.0"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
