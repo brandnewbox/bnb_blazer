@@ -1,15 +1,8 @@
+@import "./flex";
 
 body {
   background-color: #edebeb;
   font-family: 'Roboto Condensed', sans-serif;
-}
-
-table {
-  table-layout: fixed;
-}
-
-.blazer-content {
-  padding-bottom: 2.5rem;
 }
 
 #footer {
@@ -42,8 +35,49 @@ table {
   }
 }
 
-.query-links {
-  .btn-link {
-    color: #40424a;
+.topbar {
+  .container-fluid, .row {
+    height: 100%;
   }
+
+  .query-header {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+
+  .query-links {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+  
+    .btn-link {
+      color: #40424a;
+      font-size: 1.2em;
+    }
+  }
+}
+
+#queries {
+  #header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    z-index: 1001;
+    border-bottom: solid 1px whitesmoke;
+    background-color: #fff;
+    padding-left: 1em;
+    padding-right: 1em;
+
+    display: flex;
+    align-items: center;
+  }
+}
+
+.card {
+  background: #ffffff;
+  padding: 2em;
 }
