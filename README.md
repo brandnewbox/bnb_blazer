@@ -2,6 +2,10 @@
 
 Welcome to BNB Blazer! This is a gem wrapper for the [Blazer](https://github.com/ankane/blazer) query tool designed specifically for BNB projects. In this directory, you'll find the files you need to edit the behavior/appearance of this gem. Additionally, you can spin up the test app to experiment with the appearance of the tool. Put your Ruby code in the file `lib/bnb_blazer`.
 
+## PURPOSE
+
+BNB Blazer helps our clients understand how their apps are performing, and keep an eye on key metrics about their business activities inside the app. In short, it helps our clients understand the superpowers that we build for them, and gives them reportable ways to tell others about the cool shit we built.
+
 ## Installation
 
 To use this wrapper in conjunction with Blazer, add this block to your application's Gemfile:
