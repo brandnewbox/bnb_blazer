@@ -1,15 +1,16 @@
 <% blazer_title @query.name %>
 
+<% content_for :header do %>
 <div class="topbar">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-sm-6 query-header">
+      <div class="col-sm-12 col-md-6 query-header">
         <%= render partial: "blazer/nav" %>
         <h3 style="display: inline; margin-left: 3em; margin-bottom: 0">
           <%= @query.name %>
         </h3>
       </div>
-      <div class="col-sm-6 query-links">
+      <div class="col-sm-12 col-md-6 query-links">
         <%= link_to "Edit", edit_query_path(@query, variable_params(@query)), class: "btn btn-link", disabled: !@query.editable?(blazer_user) %>
         <%= link_to "Fork", new_query_path(variable_params(@query).merge(fork_query_id: @query.id, data_source: @query.data_source, name: @query.name)), class: "btn btn-link" %>
 
@@ -18,12 +19,13 @@
         <% end %>
 
         <div style="display: inline-block;">
-          <%= image_tag "bnb_blazer/bnb_intel_logo.png" %>
+          <%= image_tag "bnb_blazer/bnb_intel_logo.png", style: "height: 24px;" %>
         </div>
       </div>
     </div>
   </div>
 </div>
+<% end %>
 
 <div style="margin-bottom: 60px;"></div>
 
