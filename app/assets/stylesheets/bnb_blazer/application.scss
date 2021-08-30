@@ -39,7 +39,10 @@ body {
 .topbar {
   position: sticky;
   height: auto;
-  min-height: 56px;
+
+  @media (min-width: 480px) {
+    min-height: 56px;
+  }
 
   .container-fluid, .row {
     height: 100%;
@@ -61,6 +64,18 @@ body {
       color: #40424a;
       font-size: 1.2em;
     }
+  }
+}
+
+.header-title {
+  margin-bottom: 0;
+
+  padding-top: 1em;
+  padding-bottom: 1em;
+
+  @media (min-width: 480px) {
+    padding-top: 0;
+    padding-bottom: 0;
   }
 }
 
