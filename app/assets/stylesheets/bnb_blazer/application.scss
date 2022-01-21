@@ -68,6 +68,25 @@ body {
   }
 }
 
+.sidebar {
+  position: fixed;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background: #40424a;
+  transition: all 0.5s ease;
+  z-index: 10000;
+
+  &.show {
+    left: 0;
+  }
+
+  .sidebar-header {
+    display: flex;
+    align-items: center;
+  }
+}
+
 .header-title {
   margin-bottom: 0;
 
