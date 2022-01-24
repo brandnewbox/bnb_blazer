@@ -68,6 +68,13 @@ body {
   }
 }
 
+.mobile-nav-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 2px;
+}
+
 .sidebar {
   position: fixed;
   left: -250px;
@@ -76,6 +83,7 @@ body {
   background: #40424a;
   transition: all 0.5s ease;
   z-index: 10000;
+  padding: 0 20px;
 
   &.show {
     left: 0;
@@ -84,6 +92,22 @@ body {
   .sidebar-header {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+  }
+  
+  .sidebar-closer {
+    color: #FFF;
+    font-size: 4rem;
+    padding: 0;
+  }
+  
+  a {
+    display: block;
+    color: #FFF;
+    padding: 10px 0px;
+    font-size: 2.5rem;
+    font-weight: 300;
   }
 }
 

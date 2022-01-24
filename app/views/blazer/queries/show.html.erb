@@ -1,54 +1,15 @@
 <% blazer_title @query.name %>
 
 <% content_for :header do %>
-<div class="topbar">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-12 visible-xs">
-        <button class="btn btn-link sidebar-toggle">
-          <svg viewBox="0 0 100 72" width="40" height="40">
-            <rect width="100" height="12"></rect>
-            <rect y="30" width="100" height="12"></rect>
-            <rect y="60" width="100" height="12"></rect>
-          </svg>
-        </button>
-      </div>
-      <div class="col-sm-12 col-md-6 query-header hidden-xs">
-        <%= render partial: "blazer/nav" %>
-        <h3 class="header-title">
-          <%= @query.name %>
-        </h3>
-      </div>
-      <div class="col-sm-12 col-md-6 query-links hidden-xs">
-        <%= link_to "Edit", edit_query_path(@query, variable_params(@query)), class: "btn btn-link", disabled: !@query.editable?(blazer_user) %>
-        <%= link_to "Fork", new_query_path(variable_params(@query).merge(fork_query_id: @query.id, data_source: @query.data_source, name: @query.name)), class: "btn btn-link" %>
+  <%= render "blazer/nav" do %>
+    <%= link_to "Edit", edit_query_path(@query, variable_params(@query)), class: "btn btn-link", disabled: !@query.editable?(blazer_user) %>
+    <%= link_to "Fork", new_query_path(variable_params(@query).merge(fork_query_id: @query.id, data_source: @query.data_source, name: @query.name)), class: "btn btn-link" %>
 
-        <% if !@error && @success %>
-          <%= button_to "Download", run_queries_path(query_id: @query.id, format: "csv", forecast: params[:forecast], cohort_period: params[:cohort_period]), params: {statement: @statement}, class: "btn btn-link" %>
-        <% end %>
-
-        <div style="display: inline-block;">
-          <%= image_tag "bnb_blazer/bnb_intel_logo.png", style: "height: 24px;" %>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="sidebar visible-xs">
-  <div class="sidebar-header">
-    <%= image_tag "bnb_blazer/bnb_intel_logo.png", style: "height: 24px;" %>
-    <button>close</button>
-  </div>
-  <%= link_to "Edit", edit_query_path(@query, variable_params(@query)), class: "btn btn-link", disabled: !@query.editable?(blazer_user) %>
-  <%= link_to "Fork", new_query_path(variable_params(@query).merge(fork_query_id: @query.id, data_source: @query.data_source, name: @query.name)), class: "btn btn-link" %>
-
-  <% if !@error && @success %>
-    <%= button_to "Download", run_queries_path(query_id: @query.id, format: "csv", forecast: params[:forecast], cohort_period: params[:cohort_period]), params: {statement: @statement}, class: "btn btn-link" %>
+    <% if !@error && @success %>
+      <%= button_to "Download", run_queries_path(query_id: @query.id, format: "csv", forecast: params[:forecast], cohort_period: params[:cohort_period]), params: {statement: @statement}, class: "btn btn-link" %>
+    <% end %>
   <% end %>
-</div>
 <% end %>
-
-<div style="margin-bottom: 60px;"></div>
 
 <% if @sql_errors.any? %>
   <div class="alert alert-danger">
@@ -100,10 +61,3 @@
     }
   </script>
 <% end %>
-
-<script>
-  var sidebarToggleEl = document.querySelector('.sidebar-toggle');
-  sidebarToggleEl.addEventListener("click", function(e) {
-    document.querySelector(".sidebar").classList.toggle("show")
-  });
-</script>
