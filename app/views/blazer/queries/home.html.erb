@@ -1,6 +1,6 @@
 <div id="queries">
   <div id="header">
-    <div class="pull-right" style="line-height: 34px;">
+    <div class="" style="line-height: 34px;">
       <% if blazer_user %>
         <%= link_to "All", root_path, class: !params[:filter] ? "active" : nil, style: "margin-right: 40px;" %>
 
@@ -11,9 +11,9 @@
         <%= link_to "Mine", root_path(filter: "mine"), class: params[:filter] == "mine" ? "active" : nil, style: "margin-right: 40px;" %>
       <% end %>
 
-      <div class="btn-group">
-        <%= link_to "New Query", new_query_path, class: "btn btn-info" %>
-        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <div class="btn-group nav-btn" style="display: flex;">
+        <%= link_to "New Query", new_query_path, class: "btn btn-link" %>
+        <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <span class="caret"></span>
           <span class="sr-only">Toggle Dropdown</span>
         </button>
@@ -28,30 +28,32 @@
         </ul>
       </div>
     </div>
-    <input type="text" v-model="searchTerm" placeholder="Start typing a query, dashboard, or person" style="width: 300px; display: inline-block;" v-focus class="search form-control" />
+    <input type="text" v-model="searchTerm" placeholder="Start typing a query, dashboard, or person" style="display: inline-block;" v-focus class="search form-control" />
   </div>
 
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <% if Blazer.user_class %>
-          <th style="width: 20%; text-align: right;">Mastermind</th>
-        <% end%>
-      </tr>
-    </thead>
-    <tbody class="list" v-cloak>
-      <tr v-for="query in visibleItems">
-        <td>
-          <a :href="itemPath(query)" :class="{ dashboard: query.dashboard }">{{ query.name }}</a>
-          <span class="vars">{{ query.vars }}</span>
-        </td>
-        <% if Blazer.user_class %>
-          <td class="creator">{{ query.creator }}</td>
-        <% end %>
-      </tr>
-    </tbody>
-  </table>
+  <div class="card" style="margin-top: 80px;">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <% if Blazer.user_class %>
+            <th style="width: 20%; text-align: right;">Mastermind</th>
+          <% end%>
+        </tr>
+      </thead>
+      <tbody class="list" v-cloak>
+        <tr v-for="query in visibleItems">
+          <td>
+            <a :href="itemPath(query)" :class="{ dashboard: query.dashboard }">{{ query.name }}</a>
+            <span class="vars">{{ query.vars }}</span>
+          </td>
+          <% if Blazer.user_class %>
+            <td class="creator">{{ query.creator }}</td>
+          <% end %>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
   <p v-if="more" class="text-muted">Loading...</p>
 </div>
