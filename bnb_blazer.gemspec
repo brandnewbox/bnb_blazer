@@ -1,7 +1,7 @@
 require_relative 'lib/bnb_blazer/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "bnb-blazer"
+  spec.name          = "bnb_blazer"
   spec.version       = BnbBlazer::VERSION
   spec.authors       = ["Joe"]
   spec.email         = ["pickertjoe@gmail.com"]
