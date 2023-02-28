@@ -119,18 +119,7 @@
       <td>Map</td>
       <td>
         Named <code>latitude</code> and <code>longitude</code>, or <code>lat</code> and <code>lon</code>, or <code>lat</code> and <code>lng</code>
-        <% puts("this is blazer", Blazer.inspect) %>
-        <% if !BnbBlazer.maps? %>
-          <br />
-          <strong>Needs configured</strong>
-        <% end %>
-      </td>
-    </tr>
-    <tr>
-      <td>Area Map</td>
-      <td>
-        Named <code>geojson</code>
-        <% if !BnbBlazer.maps? %>
+        <% if !blazer_maps? %>
           <br />
           <strong>Needs configured</strong>
         <% end %>
