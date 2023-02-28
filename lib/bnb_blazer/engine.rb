@@ -1,8 +1,5 @@
 require "blazer"
 module BnbBlazer
-  class << self
-    attr_accessor :mapbox_access_token
-  end
   class Engine < ::Rails::Engine
     isolate_namespace BnbBlazer
 
