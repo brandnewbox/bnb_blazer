@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     bnb_blazer (0.13.0)
-      blazer (= 2.6.0)
+      blazer (= 2.6.5)
       sassc (~> 2.0)
 
 GEM
@@ -67,7 +67,7 @@ GEM
       minitest (>= 5.1)
       tzinfo (~> 2.0)
       zeitwerk (~> 2.3)
-    blazer (2.6.0)
+    blazer (2.6.5)
       activerecord (>= 5)
       chartkick (>= 3.2)
       railties (>= 5)

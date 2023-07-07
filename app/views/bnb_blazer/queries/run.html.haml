@@ -25,7 +25,7 @@
           · #{check.message}
       - if @query && @result.forecastable? && !params[:forecast]
         ·
-        \#{link_to "Forecast", query_path(@query, {forecast: "t"}.merge(variable_params(@query)))}
+        \#{link_to "Forecast", query_path(@query, params: {forecast: "t"}.merge(variable_params(@query)))}
   - if @forecast_error
     .alert.alert-danger= @forecast_error
   - if @cohort_error
@@ -56,12 +56,14 @@
       - color = "#54a3ee"
       - series_library[1] = {borderDash: [8], borderColor: color, pointBackgroundColor: color, backgroundColor: color, pointHoverBackgroundColor: color}
     - if blazer_maps? && @markers.any?
-      #map{:style => "height: #{@only_chart ? 300 : 500}px;"}
+      - map_id = SecureRandom.hex
+      = content_tag :div, nil, id: map_id, style: "height: #{@only_chart ? 300 : 500}px;"
       :javascript
         #{blazer_js_var "mapboxAccessToken", Blazer.mapbox_access_token}
         #{blazer_js_var "markers", @markers}
+        #{blazer_js_var "mapId", map_id }
         L.mapbox.accessToken = mapboxAccessToken;
-        var map = L.mapbox.map('map')
+        var map = L.mapbox.map(mapId)
           .addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/streets-v11'));
         var featureLayer = L.mapbox.featureLayer().addTo(map);
         var geojson = [];
