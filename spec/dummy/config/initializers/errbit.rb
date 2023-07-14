@@ -3,6 +3,8 @@ Airbrake.configure do |config|
   config.project_id = 1 # required, but any positive integer works
   config.project_key = '9d9b81e9ae0b8db7b9d522c9abd8cbbf'
 
+  config.environment = Rails.env
+  config.ignore_environments = %w(development test)
   # airbrake.io supports various features that are out of scope for
   # Errbit. Disable them:
   config.job_stats           = false
