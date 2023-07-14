@@ -1,15 +1,14 @@
 Airbrake.configure do |config|
   config.host = 'https://errbit.brandnewops.com'
   config.project_id = 1 # required, but any positive integer works
-  config.project_key = '<project-key-from-errbit>'
+  config.project_key = '9d9b81e9ae0b8db7b9d522c9abd8cbbf'
 
-  config.environment = Rails.env
-  config.ignore_environments = %w(development test)
-  
-  # A list of parameters that should be filtered out of what is sent to Airbrake
-  # https://github.com/airbrake/airbrake#integration-with-filter_parameters
-  # https://github.com/airbrake/airbrake-ruby#blacklist_keys
-  config.blocklist_keys = Rails.application.config.filter_parameters
+  # airbrake.io supports various features that are out of scope for
+  # Errbit. Disable them:
+  config.job_stats           = false
+  config.query_stats         = false
+  config.performance_stats   = false
+  config.remote_config       = false
 end
 
 # Rancher sends a SIGTERM signal to kill containers and we're fine with that so we can have Airbrake ignore that
