@@ -9,7 +9,6 @@ group :development do
   gem "puma"
   gem "pg"
   gem "faker"
-  gem 'airbrake'
 end
 
 # To use a debugger
