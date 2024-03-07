@@ -24,3 +24,5 @@ jobs:
 
       # Release
       - uses: rubygems/release-gem@v1
+        with:
+          await-release: false # We don't have access to `gem exec` in Ruby 2.7, so we'll turn off awaiting
