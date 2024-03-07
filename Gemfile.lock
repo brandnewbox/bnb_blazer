@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bnb_blazer (0.13.0)
+    bnb_blazer (0.14.0)
       blazer (= 2.6.5)
       sassc (~> 2.0)
 
@@ -73,7 +73,7 @@ GEM
       railties (>= 5)
       safely_block (>= 0.1.1)
     builder (3.2.4)
-    chartkick (4.2.1)
+    chartkick (5.0.6)
     concurrent-ruby (1.1.9)
     crass (1.0.6)
     date (3.3.3)
@@ -81,7 +81,7 @@ GEM
     erubi (1.10.0)
     faker (2.18.0)
       i18n (>= 1.6, < 2)
-    ffi (1.15.5)
+    ffi (1.16.3)
     globalid (1.1.0)
       activesupport (>= 5.0)
     i18n (1.8.10)
