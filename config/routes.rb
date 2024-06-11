@@ -1,3 +1,3 @@
-Rails.application.routes.draw do
-  # mount Blazer::Engine, at: "/blazer"
+BnbBlazer::Engine.routes.draw do
+  mount Blazer::Engine, at: "/"
 end
