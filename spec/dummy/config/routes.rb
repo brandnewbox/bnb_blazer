@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  mount BnbBlazer::Engine => "/bnb-blazer"
+  mount BnbBlazer::Engine => "/bnbintel"
 end
