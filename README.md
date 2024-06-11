@@ -1,14 +1,14 @@
-# BnbBlazer
+# BNBintel
 
-Welcome to BNB Blazer! This is a gem wrapper for the [Blazer](https://github.com/ankane/blazer) query tool designed specifically for BNB projects. In this directory, you'll find the files you need to edit the behavior/appearance of this gem. Additionally, you can spin up the test app to experiment with the appearance of the tool. Put your Ruby code in the file `lib/bnb_blazer`.
+Welcome to BNBintel! Brand New Box's buisness intelligence platform for our clients.
 
 ## PURPOSE
 
-BNB Blazer helps our clients understand how their apps are performing, and keep an eye on key metrics about their business activities inside the app. In short, it helps our clients understand the superpowers that we build for them, and gives them reportable ways to tell others about the cool shit we built.
+BNBintel helps our clients understand how their apps are performing, and keep an eye on key metrics about their business activities inside the app. In short, it helps our clients understand the superpowers that we build for them, and gives them reportable ways to tell others about the cool shit we built.
 
 ## Installation
 
-To use this wrapper in conjunction with Blazer, add this block to your application's Gemfile:
+To use this gem, add this block to your application's Gemfile:
 
 ```ruby
 gem "bnb_blazer"
@@ -29,11 +29,13 @@ dip rails db:migrate
 And mount the dashboard in your config/routes.rb:
 
 ```
-mount Blazer::Engine, at: "blazer"
+mount Blazer::Engine, at: "bnbintel"
 ```
 And specify your `BLAZER_DATABASE_URL`
 
 ## Development
+
+This uses [Blazer](https://github.com/ankane/blazer) query tool under the hood, but we have changed the views to be BNB specific. In this directory, you'll find the files you need to edit the behavior/appearance of this gem. Additionally, you can spin up the test app to experiment with the appearance of the tool. Put your Ruby code in the file `lib/bnb_blazer`.
 
 This gem comes bundled with a test app to help you test out new display designs with pre-populated blazer queries. To get the environment up and running:
 
