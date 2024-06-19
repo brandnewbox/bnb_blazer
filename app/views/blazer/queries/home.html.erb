@@ -1,36 +1,139 @@
-<div id="queries">
-  <div id="header">
-    <div class="" style="line-height: 34px;">
-      <% if blazer_user %>
-        <%= link_to "All", root_path, class: !params[:filter] ? "active" : nil, style: "margin-right: 40px;" %>
+<%#
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Header</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
 
-        <% if Blazer.audit %>
-          <%= link_to "Viewed", root_path(filter: "viewed"), class: params[:filter] == "viewed" ? "active" : nil, style: "margin-right: 40px;" %>
-        <% end %>
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
 
-        <%= link_to "Mine", root_path(filter: "mine"), class: params[:filter] == "mine" ? "active" : nil, style: "margin-right: 40px;" %>
-      <% end %>
+    .logo img {
+      height: 50px;
+    }
 
-      <div class="btn-group nav-btn" style="display: flex;">
-        <%= link_to "New Query", new_query_path, class: "btn btn-link" %>
-        <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <span class="caret"></span>
-          <span class="sr-only">Toggle Dropdown</span>
-        </button>
-        <ul class="dropdown-menu">
-          <li><%= link_to "Checks", checks_path %></li>
-          <% if Blazer.uploads? %>
-            <li><%= link_to "Uploads", uploads_path %></li>
-          <% end %>
-          <li role="separator" class="divider"></li>
-          <li><%= link_to "New Dashboard", new_dashboard_path %></li>
-          <li><%= link_to "New Check", new_check_path %></li>
-        </ul>
-      </div>
+    .menu-icon {
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      right: -300px;
+      width: 300px;
+      height: 100%;
+      background-color: #fff;
+      box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+      transition: right 0.3s ease;
+      padding: 20px;
+    }
+
+    .sidebar.open {
+      right: 0;
+    }
+
+    .close-btn {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .close-btn svg {
+      cursor: pointer;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 10px 0;
+      color: #000;
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    .new-entry {
+      margin-top: 20px;
+      display: block;
+      background-color: #007bff;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="logo">
+      <img src="path/to/logo.png" alt="Logo">
     </div>
-    <input type="text" v-model="searchTerm" placeholder="Start typing a query, dashboard, or person" style="display: inline-block;" v-focus class="search form-control" />
+    <div class="menu-icon" id="menu-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </div>
   </div>
 
+  <div class="sidebar" id="sidebar">
+    <div class="close-btn" id="close-btn">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+    </div>
+    <a href="#">All Entries</a>
+    <a href="#">Dashboards</a>
+    <a href="#">Queries</a>
+    <a href="#">Checks</a>
+    <a href="#" class="new-entry">New Entry →</a>
+  </div>
+
+  <script>
+    document.getElementById('menu-icon').addEventListener('click', function() {
+      document.getElementById('sidebar').classList.add('open');
+    });
+
+    document.getElementById('close-btn').addEventListener('click', function() {
+      document.getElementById('sidebar').classList.remove('open');
+    });
+  </script>
+
+</body>
+</html>
+%>
+<div id="queries">
+  
+  <div class="header">
+    <%# TODO IAN get the logo rendering %>
+    <div class="logo">
+      <img src="path/to/logo.png" alt="Logo">
+    </div>
+    <div class="menu-icon" id="menu-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </div>
+  </div>
+
+  <div class="sidebar" id="sidebar">
+    <div class="close-btn" id="close-btn">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+    </div>
+    <a href="#">All Entries</a>
+    <a href="#">Dashboards</a>
+    <a href="#">Queries</a>
+    <a href="#">Checks</a>
+    <a href="#" class="new-entry">New Entry →</a>
+  </div>
+
+  <%# TODO IAN get the hamburger popover working %>
   <div class="card" style="margin-top: 80px;">
     <table class="table">
       <thead>
@@ -165,4 +268,12 @@
       }
     }
   })
+  // TODO IAN get this js working for the popover
+  document.getElementById('menu-icon').addEventListener('click', function() {
+    document.getElementById('sidebar').classList.add('open');
+  });
+
+  document.getElementById('close-btn').addEventListener('click', function() {
+    document.getElementById('sidebar').classList.remove('open');
+  });
 </script>
