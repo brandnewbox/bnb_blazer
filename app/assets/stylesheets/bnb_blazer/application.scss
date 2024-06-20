@@ -78,7 +78,7 @@ body {
 
 .sidebar {
   position: fixed;
-  left: -250px;
+  right: -250px;
   width: 250px;
   height: 100%;
   background: #40424a;
@@ -86,8 +86,8 @@ body {
   z-index: 10000;
   padding: 0 20px;
 
-  &.show {
-    left: 0;
+  &.open {
+    right: 0;
   }
 
   .sidebar-header {
