@@ -1,124 +1,12 @@
-<%#
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Responsive Header</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-    }
-
-    .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 20px;
-      background-color: #fff;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-
-    .logo img {
-      height: 50px;
-    }
-
-    .menu-icon {
-      font-size: 24px;
-      cursor: pointer;
-    }
-
-    .sidebar {
-      position: fixed;
-      top: 0;
-      right: -300px;
-      width: 300px;
-      height: 100%;
-      background-color: #fff;
-      box-shadow: -2px 0 5px rgba(0,0,0,0.1);
-      transition: right 0.3s ease;
-      padding: 20px;
-    }
-
-    .sidebar.open {
-      right: 0;
-    }
-
-    .close-btn {
-      display: flex;
-      justify-content: flex-end;
-    }
-
-    .close-btn svg {
-      cursor: pointer;
-    }
-
-    .sidebar a {
-      display: block;
-      padding: 10px 0;
-      color: #000;
-      text-decoration: none;
-      font-size: 18px;
-    }
-
-    .new-entry {
-      margin-top: 20px;
-      display: block;
-      background-color: #007bff;
-      color: #fff;
-      text-align: center;
-      padding: 10px;
-      border-radius: 5px;
-      text-decoration: none;
-      font-size: 18px;
-    }
-  </style>
-</head>
-<body>
-
-  <div class="header">
-    <div class="logo">
-      <img src="path/to/logo.png" alt="Logo">
-    </div>
-    <div class="menu-icon" id="menu-icon">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
-    </div>
-  </div>
-
-  <div class="sidebar" id="sidebar">
-    <div class="close-btn" id="close-btn">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
-    </div>
-    <a href="#">All Entries</a>
-    <a href="#">Dashboards</a>
-    <a href="#">Queries</a>
-    <a href="#">Checks</a>
-    <a href="#" class="new-entry">New Entry →</a>
-  </div>
-
-  <script>
-    document.getElementById('menu-icon').addEventListener('click', function() {
-      document.getElementById('sidebar').classList.add('open');
-    });
-
-    document.getElementById('close-btn').addEventListener('click', function() {
-      document.getElementById('sidebar').classList.remove('open');
-    });
-  </script>
-
-</body>
-</html>
-%>
 <div id="queries">
   
   <div class="header" style="display: flex; justify-content: space-between">
-    <%# TODO IAN get the logo rendering / get it from vika%>
+    <%# TODO IAN get real logo from vika%>
     <div class="logo">
-      <img src="path/to/logo.png" alt="Logo">
+      <%= image_tag "bnb_blazer/institute_logo.png", style: "height: 5rem;" %>
     </div>
-    <div class="menu-icon" id="menu-icon">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    <div class="menu-icon" id="menu-icon" style="display: flex; align-items: center;">
+      <svg style="display: flex; flex-grow: 1;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
     </div>
   </div>
 
@@ -133,7 +21,7 @@
     <a href="#" class="new-entry">New Entry →</a>
   </div>
 
-  <%# TODO IAN get the hamburger popover working %>
+  <%# TODO IAN add a configuration setting to pull in the logo!?!?%>
   <div class="card" style="margin-top: 80px;">
     <table class="table">
       <thead>
@@ -270,6 +158,9 @@
   })
   // TODO IAN get this js working for the popover
   document.getElementById('menu-icon').addEventListener('click', function() {
+    // TODO IAN we are hitting this but the popover seems to always be open and is invisible
+    // i tried to z index it but it didn't seem to help
+    console.log("we hit this", document.getElementById('sidebar'))
     document.getElementById('sidebar').classList.add('open');
   });
 
