@@ -79,15 +79,17 @@ body {
 .sidebar {
   position: fixed;
   right: -250px;
+  top: 75px;
   width: 250px;
-  height: 100%;
-  background: #40424a;
+  height: 60%;
   transition: all 0.5s ease;
   z-index: 10000;
   padding: 0 20px;
-
+  background-color: white;
+  text-align: end;
   &.open {
-    right: 0;
+    right: 10px;
+    border-radius: 5px
   }
 
   .sidebar-header {
@@ -105,10 +107,13 @@ body {
   
   a {
     display: block;
-    color: #FFF;
     padding: 10px 0px;
-    font-size: 2.5rem;
     font-weight: 300;
+    text-decoration: none;
+    color: black;
+    &:hover{
+      color: #478bb3;
+    }
   }
 }
 
@@ -145,4 +150,8 @@ body {
 .card {
   background: #ffffff;
   padding: 2em;
+}
+
+.rounded-pill{
+  border-radius: 30px 30px 30px 30px;
 }
