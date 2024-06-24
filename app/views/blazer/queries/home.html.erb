@@ -11,11 +11,10 @@
     </div>
     <div class="desktop-nav" style="display:flex; align-items: center;">
       <%# TODO IAN get these into partials %>
-      <%# TODO IAN get these highlighting like the figma %>
-      <%=link_to "All Entries", root_path, style: "padding: 10px" %>
-      <%=link_to "Dashboards", "#", style: "padding: 10px" %>
-      <%=link_to "Queries", queries_path, style: "padding: 10px" %>
-      <%=link_to "Checks", checks_path, style: "padding: 10px" %>
+      <%=link_to "All Entries", root_path, style: "padding: 10px; text-decoration: none;" %>
+      <%=link_to "Dashboards", "#", style: "padding: 10px; text-decoration: none;" %>
+      <%=link_to "Queries", queries_path, style: "padding: 10px;  text-decoration: none;" %>
+      <%=link_to "Checks", checks_path, style: "padding: 10px; text-decoration: none;" %>
       <div class="btn-group nav-btn" style="display: flex; border: none; ">
         <button type="button" class="btn btn-link dropdown-toggle" style="text-decoration: none;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <div class="btn-primary rounded-pill" style="padding: 10px; display: inline;"> New Entry →</div>
