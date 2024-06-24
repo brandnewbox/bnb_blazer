@@ -16,17 +16,31 @@
   </div>
 
   <div class="sidebar" id="sidebar">
+    <div id="old-sidebar">
+      <%=link_to "All Entries", root_path%>
+      <%# TODO IAN I dont think we have a dashboards index? do we need to build one?%>
+      <%=link_to "Dashboards", "#"%>
+      <%=link_to "Queries", queries_path%>
+      <%=link_to "Checks", checks_path%>
+      <a href="#" id="new-entry" style="display: flex; justify-content: end;">
+        <div class="btn-primary rounded-pill" style="padding: 10px; width: 50%;">
+          New Entry →
+        </div>
+      </a>
+    </div>
 
-    <a href="#">All Entries</a>
-    <%=link_to "Dashboards", dashboards_path%>
-    <%=link_to "Queries", new_query_path%>
-    <%=link_to "Checks", checks_path%>
-    <a href="#" class="new-entry" style="display: flex; justify-content: end;">
-      <div class="btn-primary rounded-pill" style="padding: 10px; width: 50%;">
-        New Entry →
-      </div>
-    </a>
+    <div id="new-sidebar" style="display: none;">
+      <svg id="new-close-btn" width="40" height="40" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="12" cy="12" r="10" fill="#ECECEC"/>
+        <polygon points="14,8 10,12 14,16" fill="#4A4A4A"/>
+      </svg>
+      <p style="color: gray;"> NEW ENTRY </p>
+      <%=link_to "New Dashboard", new_dashboard_path%>
+      <%=link_to "New Query", new_query_path%>
+      <%=link_to "Checks", new_check_path%>
+    </div>
   </div>
+
 
   <%# TODO IAN add a configuration setting to pull in the logo!?!?%>
   <div class="card" style="margin-top: 80px;">
@@ -175,5 +189,15 @@
     document.getElementById('sidebar').classList.remove('open');
     document.getElementById('menu-icon').style.display = "flex";
     document.getElementById('close-btn').style.display = "none";
+  });
+  document.getElementById('new-entry').addEventListener('click', function() {
+    document.getElementById('sidebar').classList.add('align-start');
+    document.getElementById('old-sidebar').style.display = "none";
+    document.getElementById('new-sidebar').style.display = "block";
+  });
+  document.getElementById('new-close-btn').addEventListener('click', function() {
+    document.getElementById('sidebar').classList.remove('align-start');
+    document.getElementById('old-sidebar').style.display = "block";
+    document.getElementById('new-sidebar').style.display = "none";
   });
 </script>
