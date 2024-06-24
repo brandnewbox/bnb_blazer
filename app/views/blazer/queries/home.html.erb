@@ -18,9 +18,9 @@
   <div class="sidebar" id="sidebar">
 
     <a href="#">All Entries</a>
-    <a href="#">Dashboards</a>
-    <a href="#">Queries</a>
-    <a href="#">Checks</a>
+    <%=link_to "Dashboards", dashboards_path%>
+    <%=link_to "Queries", new_query_path%>
+    <%=link_to "Checks", checks_path%>
     <a href="#" class="new-entry" style="display: flex; justify-content: end;">
       <div class="btn-primary rounded-pill" style="padding: 10px; width: 50%;">
         New Entry →
