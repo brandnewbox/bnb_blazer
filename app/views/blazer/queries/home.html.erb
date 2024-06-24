@@ -1,8 +1,6 @@
 <div id="queries">
   
   <div class="header" style="display: flex; justify-content: space-between">
-    <%# TODO IAN we want to add the ability to specify a logo file in the gem's intitializer
-    but wait to do this until we have a better idea of what we are doing%>
     <div class="logo">
       <%= image_tag "bnb_blazer/institute_logo.png", style: "height: 5rem;" %>
     </div>
@@ -12,9 +10,9 @@
       </div>
     </div>
     <div class="desktop-nav" style="display:flex; align-items: center;">
-      
+      <%# TODO IAN get these into partials %>
+      <%# TODO IAN get these highlighting like the figma %>
       <%=link_to "All Entries", root_path, style: "padding: 10px" %>
-      <%# TODO IAN I dont think we have a dashboards index? do we need to build one?%>
       <%=link_to "Dashboards", "#", style: "padding: 10px" %>
       <%=link_to "Queries", queries_path, style: "padding: 10px" %>
       <%=link_to "Checks", checks_path, style: "padding: 10px" %>
@@ -36,7 +34,6 @@
   </div>
 
   <div class="sidebar" id="sidebar">
-    <%# TODO IAN rename this to something better %>
     <div id="primary-sidebar">
       <%=link_to "All Entries", root_path%>
       <%# TODO IAN I dont think we have a dashboards index? do we need to build one?%>
@@ -51,10 +48,9 @@
     </div>
 
     <div id="secondary-sidebar" style="display: none;">
-      <%# TODO IAN this close button isn't quite right %>
-      <svg id="secondary-close-btn" width="40" height="40" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="12" cy="12" r="10" fill="#ECECEC"/>
-        <polygon points="14,8 10,12 14,16" fill="#4A4A4A"/>
+      <svg id="secondary-close-btn"  xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" style="margin: 10px 0px;">
+        <circle cx="12" cy="12" r="10" fill="#e0e0e0"/>
+        <path d="M14 16l-4-4 4-4" stroke="#666666" stroke-width="2" fill="none"/>
       </svg>
       <p style="color: gray;"> NEW ENTRY </p>
       <%=link_to "New Dashboard", new_dashboard_path%>
