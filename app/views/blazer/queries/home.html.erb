@@ -1,63 +1,9 @@
+<% content_for :header do %>
+  <%= render layout: "blazer/new_nav" do %>
+    <%= link_to "Edit", edit_dashboard_path(@dashboard, variable_params(@dashboard)), class: "btn btn-link" %>
+  <% end %>
+<% end %>
 <div id="queries">
-  
-  <div class="header" style="display: flex; justify-content: space-between">
-    <div class="logo">
-      <%= image_tag "bnb_blazer/institute_logo.png", style: "height: 5rem;" %>
-    </div>
-    <div class="mobile-nav">
-      <div class="menu-icon" id="menu-icon" style="display: flex; align-items: center;">
-        <svg style="display: flex; flex-grow: 1;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
-      </div>
-    </div>
-    <div class="desktop-nav" style="display:flex; align-items: center;">
-      <%# TODO IAN get these into partials %>
-      <%=link_to "All Entries", root_path, style: "padding: 10px; text-decoration: none;" %>
-      <%=link_to "Dashboards", "#", style: "padding: 10px; text-decoration: none;" %>
-      <%=link_to "Queries", queries_path, style: "padding: 10px;  text-decoration: none;" %>
-      <%=link_to "Checks", checks_path, style: "padding: 10px; text-decoration: none;" %>
-      <div class="btn-group nav-btn" style="display: flex; border: none; ">
-        <button type="button" class="btn btn-link dropdown-toggle" style="text-decoration: none;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <div class="btn-primary rounded-pill" style="padding: 10px; display: inline;"> New Entry →</div>
-        </button>
-        <ul class="dropdown-menu">
-          <li><%= link_to "New Dashboard", new_dashboard_path %></li>
-          <li><%= link_to "New Check", new_check_path %></li>
-          <li><%= link_to "New Query", new_query_path %></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="close-btn" id="close-btn" style="display: none; align-items: center;">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"  style=" background-color: white; border-radius: 30px"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" fill="#478bb3"/></svg>
-    </div>
-  </div>
-
-  <div class="sidebar" id="sidebar">
-    <div id="primary-sidebar">
-      <%=link_to "All Entries", root_path%>
-      <%# TODO IAN I dont think we have a dashboards index? do we need to build one?%>
-      <%=link_to "Dashboards", "#"%>
-      <%=link_to "Queries", queries_path%>
-      <%=link_to "Checks", checks_path%>
-      <a href="#" id="new-entry" style="display: flex; justify-content: end;">
-        <div class="btn-primary rounded-pill" style="padding: 10px; width: 50%;">
-          New Entry →
-        </div>
-      </a>
-    </div>
-
-    <div id="secondary-sidebar" style="display: none;">
-      <svg id="secondary-close-btn"  xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" style="margin: 10px 0px;">
-        <circle cx="12" cy="12" r="10" fill="#e0e0e0"/>
-        <path d="M14 16l-4-4 4-4" stroke="#666666" stroke-width="2" fill="none"/>
-      </svg>
-      <p style="color: gray;"> NEW ENTRY </p>
-      <%=link_to "New Dashboard", new_dashboard_path%>
-      <%=link_to "New Query", new_query_path%>
-      <%=link_to "Checks", new_check_path%>
-    </div>
-  </div>
-
   <div class="card" style="margin-top: 80px;">
     <table class="table">
       <thead>
