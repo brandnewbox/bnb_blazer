@@ -1,0 +1,28 @@
+on:
+  push:
+    tags:
+      - v*
+
+# Uses RubyGems Trusted Publishers to push the gem https://guides.rubygems.org/trusted-publishing/adding-a-publisher/
+jobs:
+  push:
+    name: Push gem to RubyGems.org
+    runs-on: ubuntu-latest
+
+    permissions:
+      id-token: write
+      contents: write
+
+    steps:
+      # Set up
+      - uses: actions/checkout@v4
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+          ruby-version: '2.7'
+
+      # Release
+      - uses: rubygems/release-gem@v1
+        with:
+          await-release: false # We don't have access to `gem exec` in Ruby 2.7, so we'll turn off awaiting
