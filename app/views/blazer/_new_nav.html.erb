@@ -8,10 +8,7 @@
     </div>
   </div>
   <div class="desktop-nav" style="display:flex; align-items: center;">
-    <%puts(current_page?(root_path), "xxx")%>
     <%=link_to "All Entries", root_path, class: "nav-btn #{"active" if current_page?(root_path)}", style: "padding: 10px; text-decoration: none;" %>
-    <%=link_to "Dashboards", "#", class: "nav-btn", style: "padding: 10px; text-decoration: none;" %>
-    <%=link_to "Queries", queries_path, class: "nav-btn #{"active" if current_page?(queries_path)}", style: "padding: 10px;  text-decoration: none;" %>
     <%=link_to "Checks", checks_path, class: "nav-btn #{"active" if current_page?(checks_path)}", style: "padding: 10px; text-decoration: none;" %>
     <div class="btn-group nav-btn" style="display: flex; border: none; ">
       <button type="button" class="btn btn-link dropdown-toggle" style="text-decoration: none;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -37,9 +34,6 @@
 <div class="sidebar" id="sidebar">
   <div id="primary-sidebar">
     <%=link_to "All Entries", root_path%>
-    <%# TODO IAN I dont think we have a dashboards index? do we need to build one?%>
-    <%=link_to "Dashboards", "#"%>
-    <%=link_to "Queries", queries_path%>
     <%=link_to "Checks", checks_path%>
     <a href="#" id="new-entry" style="display: flex; justify-content: end;">
       <div class="btn-primary rounded-pill" style="padding: 10px; width: 50%;">
