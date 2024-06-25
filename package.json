@@ -3,6 +3,7 @@
     "build": "node ./esbuild.mjs"
   },
   "dependencies": {
+    "bootstrap": "^5.3.3",
     "esbuild": "^0.21.5",
     "esbuild-sass-plugin": "^3.3.1"
   }
