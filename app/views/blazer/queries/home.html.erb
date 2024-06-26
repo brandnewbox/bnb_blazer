@@ -133,26 +133,35 @@
       }
     }
   })
-
+  // TODO IAN move this to application layout
+  // TODO IAN other stuff will break with this when we swich to oootstrap classes
   document.getElementById('menu-icon').addEventListener('click', function() {
     document.getElementById('sidebar').classList.add('open');
-    document.getElementById('menu-icon').style.display = "none";
-    document.getElementById('close-btn').style.display = "flex";
+    document.getElementById('menu-icon').classList.add('d-none');
+    document.getElementById('menu-icon').classList.remove('d-flex');
+    document.getElementById('close-btn').classList.remove('d-none');
+    document.getElementById('close-btn').classList.add('d-flex');
   });
 
   document.getElementById('close-btn').addEventListener('click', function() {
     document.getElementById('sidebar').classList.remove('open');
-    document.getElementById('menu-icon').style.display = "flex";
-    document.getElementById('close-btn').style.display = "none";
+    document.getElementById('menu-icon').classList.add('d-flex');
+    document.getElementById('menu-icon').classList.remove('d-none');
+    document.getElementById('close-btn').classList.remove('d-flex');
+    document.getElementById('close-btn').classList.add('d-none');;
   });
   document.getElementById('new-entry').addEventListener('click', function() {
     document.getElementById('sidebar').classList.add('align-start');
-    document.getElementById('primary-sidebar').style.display = "none";
-    document.getElementById('secondary-sidebar').style.display = "block";
+    document.getElementById('primary-sidebar').classList.remove('d-block');
+    document.getElementById('primary-sidebar').classList.add('d-none');
+    document.getElementById('secondary-sidebar').classList.remove('d-none');
+    document.getElementById('secondary-sidebar').classList.add('d-block');
   });
   document.getElementById('secondary-close-btn').addEventListener('click', function() {
     document.getElementById('sidebar').classList.remove('align-start');
-    document.getElementById('primary-sidebar').style.display = "block";
-    document.getElementById('secondary-sidebar').style.display = "none";
+    document.getElementById('primary-sidebar').classList.remove('d-none');
+    document.getElementById('primary-sidebar').classList.add('d-block');
+    document.getElementById('secondary-sidebar').classList.remove('d-block');
+    document.getElementById('secondary-sidebar').classList.add('d-none');
   });
 </script>
