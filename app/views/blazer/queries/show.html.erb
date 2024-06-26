@@ -9,7 +9,8 @@
 
 <% content_for :header do %>
   <%= render "blazer/nav" do %>
-    <%# TODO IAN check with vika to tell where these go? %>
+    <%# TODO IAN check with vika to tell where these go? it seems like we would only want this on query pages so perhaps 
+    we conditionally render this on the query show page as extra items or at the bottom with an hr in the middle? %>
     <%= link_to "Edit", edit_query_path(@query, variable_params(@query)), class: "btn btn-link", disabled: !@query.editable?(blazer_user) %>
     <%= link_to "Fork", new_query_path(variable_params(@query).merge(fork_query_id: @query.id, data_source: @query.data_source, name: @query.name)), class: "btn btn-link" %>
 
