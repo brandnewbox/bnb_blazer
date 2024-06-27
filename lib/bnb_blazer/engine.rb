@@ -8,7 +8,7 @@ module BnbBlazer
       app.config.assets.precompile << "bnb_blazer/application.css"
       app.config.assets.precompile << "bnb_blazer/bnb_intel_logo.png"
       app.config.assets.precompile << "bnb_blazer/bnb_intel_logo_alt.png"
-      app.config.assets.precompile << "bnb_blazer/institute_logo.png"
+      app.config.assets.precompile << "bnb_blazer/bnb_logo.png"
     end
   end
 end

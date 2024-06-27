@@ -1,6 +1,9 @@
 <div class="header d-flex justify-content-between">
   <div class="logo">
-    <%= image_tag "bnb_blazer/institute_logo.png", class: "ms-3", style: "height: 5rem;" %>
+    <%= image_tag "bnb_blazer/bnb_logo.png", class: "ms-3", style: "height: 5rem;" %>
+    <% if Blazer.client_logo %>
+      <%= image_tag Blazer.client_logo, class: "ms-3", style: "height: 5rem;" %>
+    <% end %>
   </div>
   <div class="mobile-nav">
     <div class="menu-icon d-flex align-items-center me-3" id="menu-icon">
