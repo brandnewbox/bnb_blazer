@@ -10,5 +10,3 @@ application.register("toggle", ToggleController)
 // TRY to do the 2nd one using the same controller and if it doesnt' work
 // then create a page controller that has targets to the two sets of html and clicking the button should 
 // change the page
-
-// TODO IAN get the white background on the nav and get the logo as an svg that we can color

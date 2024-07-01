@@ -1,12 +1,13 @@
 <div class="header d-flex justify-content-between bg-white">
   <div class="logo">
-    <%= image_tag "bnb_blazer/bnb_logo.png", class: "ms-3", style: "height: 5rem;" %>
+    <%= image_tag "bnb_blazer/bnb_box.svg", class: "ms-3", style: "height: 5rem;" %>
     <% if Blazer.client_logo %>
       <%= image_tag Blazer.client_logo, class: "ms-3", style: "height: 5rem;" %>
     <% end %>
   </div>
   <div class="d-flex d-md-none">
-    <div class="menu-icon d-flex align-items-center me-3" id="menu-icon" data="controller: nav-toggle">
+    <%# TODO IAN figure out why this isn't console loggin %>
+    <div class="menu-icon d-flex align-items-center me-3" id="menu-icon" data-controller="toggle">
       <svg class="d-flex flex-grow-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
     </div>
   </div>
