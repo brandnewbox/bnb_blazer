@@ -175,23 +175,3 @@ a {
   background: #ffffff;
   padding: 2em;
 }
-
-.rounded-pill{
-  border-radius: 30px 30px 30px 30px;
-}
-
-.desktop-nav{
-  display: none !important;
-  @media (min-width: 768px) {
-    display: flex !important;
-  }
-
-}
-
-.mobile-nav{
-  display: flex;
-  @media (min-width: 768px) {
-    display: none;
-  }
-
-}
